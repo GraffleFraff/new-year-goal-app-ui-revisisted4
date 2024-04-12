@@ -1,5 +1,6 @@
 import React from "react";
 import { Card, Form, Button } from "react-bootstrap";
+import { Pencil, Trash } from "react-bootstrap-icons";
 
 const GoalComponent = ({ goal, updateStatus, onEdit, onDelete }) => {
   const dropdownStyle = {
@@ -28,7 +29,8 @@ const GoalComponent = ({ goal, updateStatus, onEdit, onDelete }) => {
               <b>Frequency:</b> {goal.frequency}
             </Card.Subtitle>
             <Button onClick={onEdit} variant="outline-secondary" size="sm">
-              Edit
+              <Pencil />
+              &nbsp;Edit
             </Button>
             <Button
               variant="outline-danger"
@@ -37,7 +39,8 @@ const GoalComponent = ({ goal, updateStatus, onEdit, onDelete }) => {
               style={{ marginLeft: "10px" }}
               className="shadow-sm"
             >
-              Delete
+              <Trash />
+              &nbsp; Delete
             </Button>
           </Form.Group>
           <Form.Group controlId="statusSelect" className="align-self-start">

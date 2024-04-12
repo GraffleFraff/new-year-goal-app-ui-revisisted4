@@ -5,6 +5,7 @@ import WeeklyJournalModal from "./WeeklyJournalModal";
 import { Button, Container } from "react-bootstrap";
 import PercentComponent from "./PercentComponent";
 import ConfirmModal from "./ConfirmModal";
+import { PlusCircle, JournalPlus } from "react-bootstrap-icons";
 
 const WeekComponent = ({ goals, setGoals }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -74,14 +75,16 @@ const WeekComponent = ({ goals, setGoals }) => {
             onClick={() => setIsModalVisible(true)}
             style={{ marginLeft: "10px" }}
           >
-            Add Goal
+            <PlusCircle />
+            &nbsp; Add Goal
           </Button>
           <Button
             onClick={handleJournalClick}
             variant="secondary"
             style={{ marginLeft: "10px" }}
           >
-            Journal
+            <JournalPlus />
+            &nbsp; Journal
           </Button>
         </div>
       </h5>

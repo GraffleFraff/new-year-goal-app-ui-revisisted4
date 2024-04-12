@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Form, Card } from "react-bootstrap";
+import Header from "./Header";
+import { Journal } from "react-bootstrap-icons";
 
 const YearlyGoalsReflection = () => {
   const [reflection, setReflection] = useState("");
@@ -13,17 +15,23 @@ const YearlyGoalsReflection = () => {
   };
 
   return (
-    <div>
-      <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item active" aria-current="page">
-            High Level Vision
-          </li>
-        </ol>
-      </nav>
+    <div style={{ paddingTop: "60px" }}>
+      <div class="d-flex">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">
+              High Level Vision
+            </li>
+          </ol>
+        </nav>
+        <Header />
+      </div>
       <Card className="mb-3 shadow-sm">
         <Card.Header>
-          <h2 style={{ textAlign: "center" }}>High Level Vision</h2>
+          <h3 style={{ textAlign: "center" }}>
+            <Journal />
+            &nbsp;<b>High Level Vision</b>
+          </h3>
         </Card.Header>
 
         <Card.Body>

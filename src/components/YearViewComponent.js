@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { eachWeekOfInterval, format } from "date-fns";
 import { Card } from "react-bootstrap";
+import Header from "./Header";
+import { Calendar, CalendarWeek } from "react-bootstrap-icons";
 
 const YearViewComponent = () => {
   const yearStart = new Date("12/31/2023");
@@ -19,21 +21,28 @@ const YearViewComponent = () => {
   });
 
   return (
-    <div>
-      <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item active" aria-current="page">
-            Year View
-          </li>
-        </ol>
-      </nav>
+    <div style={{ paddingTop: "60px" }}>
+      <div class="d-flex">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">
+              Year View
+            </li>
+          </ol>
+        </nav>
+        <Header />
+      </div>
       <Card className="mb-3 shadow-sm">
         <Card.Header>
           <Card.Title>
-            <h2 style={{ textAlign: "center" }}>Year View</h2>
+            <h3 style={{ textAlign: "center" }}>
+              <Calendar />
+              &nbsp;
+              <b>Year View</b>
+            </h3>
           </Card.Title>
           <Card.Text style={{ textAlign: "center" }}>
-            Select the week you'd like to set your goals for.
+            <h6>Select a week to start setting goals</h6>
           </Card.Text>
         </Card.Header>
         <Card.Body>
@@ -46,7 +55,8 @@ const YearViewComponent = () => {
                       style={{ textDecoration: "none" }}
                       to={`/week/${weekIndex + 1 + index * 13}`}
                     >
-                      Week {weekIndex + 1 + index * 13}
+                      <CalendarWeek />
+                      &nbsp; Week {weekIndex + 1 + index * 13}
                     </Link>
                     <div>
                       {format(week, "MM/dd/yyyy")} -{" "}

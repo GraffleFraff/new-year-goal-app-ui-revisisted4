@@ -3,7 +3,8 @@ import { Button, Card } from "react-bootstrap";
 import WeekComponent from "./WeekComponent";
 import { useParams, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { ArrowLeft, ArrowRight } from "react-bootstrap-icons";
+import { ArrowLeft, ArrowRight, CalendarWeek } from "react-bootstrap-icons";
+import Header from "./Header";
 
 const ProgressComponent = () => {
   let { weekNumber } = useParams();
@@ -65,23 +66,28 @@ const ProgressComponent = () => {
   };
 
   return (
-    <div>
-      <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item">
-            <Link class="nav-link active" to="/year-view">
-              Year View
-            </Link>
-          </li>
-          <li class="breadcrumb-item active" aria-current="page">
-            Week View
-          </li>
-        </ol>
-      </nav>
+    <div style={{ paddingTop: "60px" }}>
+      <div class="d-flex">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+              <Link class="nav-link active" to="/year-view">
+                Year View
+              </Link>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">
+              Week View
+            </li>
+          </ol>
+        </nav>
+        <Header />
+      </div>
       <Card className="mb-3 shadow-sm">
         <Card.Header>
           {" "}
           <h3 style={{ textAlign: "center" }}>
+            <CalendarWeek />
+            &nbsp;
             <b>Week {currentWeek}</b>
           </h3>
           <h6 style={{ textAlign: "center" }}>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Modal, Button, Form } from "react-bootstrap";
+import { Pencil, PlusCircle } from "react-bootstrap-icons";
 
 const EditGoalModal = ({ show, onHide, onSubmit, editingGoal }) => {
   const [goalName, setGoalName] = useState("");
@@ -61,7 +62,17 @@ const EditGoalModal = ({ show, onHide, onSubmit, editingGoal }) => {
     <Modal show={show} onHide={onHide} centered>
       <Modal.Header style={{ backgroundColor: "#e9ecef" }} closeButton>
         <Modal.Title>
-          <b>{editingGoal ? "Edit Goal" : "Add Goal"}</b>
+          <b>
+            {editingGoal ? (
+              <div>
+                <Pencil /> Edit Goal
+              </div>
+            ) : (
+              <div>
+                <PlusCircle /> Add Goal
+              </div>
+            )}
+          </b>
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
@@ -102,7 +113,7 @@ const EditGoalModal = ({ show, onHide, onSubmit, editingGoal }) => {
         </Form>
       </Modal.Body>
       <Modal.Footer style={{ borderTop: "none" }}>
-        <Button variant="secondary" onClick={onHide}>
+        <Button variant="outline-secondary" onClick={onHide}>
           Close
         </Button>
         <Button variant="primary" onClick={handleSubmit}>
